@@ -1,31 +1,55 @@
-# PgnMerger
+# PGN Merger — Merge Chess PGN Files via Command Line
 
-A simple F# command-line tool for merging multiple PGN (Portable Game Notation) chess game files into a single file.
+[![.NET](https://img.shields.io/badge/.NET-9.0-512BD4)](https://dotnet.microsoft.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![F#](https://img.shields.io/badge/F%23-7.0-blueviolet)](https://fsharp.org/)
 
-## Description
+A fast, lightweight F# command-line tool to **merge multiple PGN (Portable Game Notation) chess game files into a single file**.
 
-PgnMerger takes a directory containing multiple PGN files and combines them into a single `merge.pgn` file in the same directory. This is useful for consolidating chess game databases from sources like Lichess Elite games spanning multiple months or years.
+PGN Merger takes a directory of chess game files and combines them into one consolidated `merge.pgn`. Perfect for building chess databases from Lichess Elite games, tournament archives, or personal game collections.
+
+---
+
+## What is a PGN file?
+
+[PGN](https://en.wikipedia.org/wiki/Portable_Game_Notation) (Portable Game Notation) is the standard file format for recording chess games. Each `.pgn` file contains one or more chess games with metadata headers and move history. Chess players, coaches, and analysts frequently need to **merge PGN files** into a single database for training, opening preparation, or statistical analysis.
+
+---
 
 ## Features
 
-- Merges all PGN files in a specified directory
-- Preserves the original file encoding (UTF-8)
-- Creates a consolidated output file named `merge.pgn`
-- Includes error handling for common file system issues
-- Provides progress feedback during the merge process
+- **Merge all PGN files** in a directory into one `merge.pgn`
+- **Preserves original file encoding** (UTF-8)
+- **Zero dependencies** — standalone CLI binary
+- **Cross-platform** — runs on Windows, macOS, and Linux via .NET
+- **Progress feedback** during the merge process
+- **Error handling** for missing directories, empty folders, and permission issues
 
-## Requirements
+---
 
-- .NET 9.0 or later
-- F# compiler
+## Installation
 
-## Building
+### From Source
+
+Requires [.NET 9.0 SDK](https://dotnet.microsoft.com/download) or later:
 
 ```bash
+git clone https://github.com/CorentinGS/pgn-merger.git
+cd pgn-merger
 dotnet build
 ```
 
+### As a Global .NET Tool (coming soon)
+
+```bash
+dotnet tool install -g PgnMerger
+```
+
+---
+
 ## Usage
+
+### Basic
 
 ```bash
 dotnet run <folder_path>
@@ -34,28 +58,83 @@ dotnet run <folder_path>
 ### Example
 
 ```bash
-dotnet run ./test_pgn
+dotnet run ./lichess_games
 ```
 
-This will merge all PGN files in the `test_pgn` directory into `test_pgn/merge.pgn`.
+This merges all `.pgn` files in `./lichess_games` into `./lichess_games/merge.pgn`.
 
-## Input/Output
+---
+
+## Comparison: PGN Merger vs. Other Tools
+
+| Tool | Language | Standalone | Preserves Headers | Preserves Comments | Merge Type |
+|------|----------|------------|-------------------|--------------------|------------|
+| **PGN Merger** (this) | F# / .NET | ✅ Yes | ✅ Yes | ✅ Yes | Concatenation |
+| [merge-pgn](https://github.com/permutationlock/merge-pgn) | Python | ❌ Requires python-chess | ❌ No | ❌ No | Variation tree |
+| [pgn-tools](https://github.com/olleeriksson/pgn-tools) | Python | ❌ Requires python-chess | ✅ Yes | ✅ Yes | Variation tree |
+
+Choose **PGN Merger** when you want a simple, fast tool to combine PGN databases without extra dependencies or complex merging logic.
+
+---
+
+## FAQ
+
+### How do I merge Lichess PGN files?
+
+Download your Lichess games in PGN format, place them in one folder, and run:
+
+```bash
+dotnet run ./my_lichess_games
+```
+
+The tool outputs a single `merge.pgn` with all games combined.
+
+### Can I merge PGN files from Chess.com?
+
+Yes. Export your Chess.com games as PGN, place them in a directory, and run the merger.
+
+### What is the difference between merging and combining PGN files?
+
+**Merging** (what this tool does) concatenates multiple games into one file. **Combining** into a single game tree is a different operation; for that, use tools like [pgn-tools](https://github.com/olleeriksson/pgn-tools).
+
+### Does this tool modify game data?
+
+No. PGN Merger concatenates files as-is, preserving all headers, comments, and move text.
+
+---
+
+## Input / Output
 
 - **Input**: A directory containing one or more `.pgn` files
-- **Output**: A single `merge.pgn` file in the same directory containing all merged games
+- **Output**: A single `merge.pgn` file in the same directory with all games concatenated
+
+---
 
 ## Error Handling
 
-The application handles various error scenarios:
+The application handles common issues:
+
 - Directory doesn't exist
-- No PGN files found in the directory  
+- No PGN files found in the directory
 - File access permission issues
 - I/O errors during file operations
 
+---
+
+## See Also
+
+- [awesome-chess](https://github.com/hkirat/awesome-chess) — Curated list of chess resources
+- [awesome-fsharp](https://github.com/fsprojects/awesome-fsharp) — F# ecosystem tools
+- [python-chess](https://github.com/niklasf/python-chess) — Python chess library
+- [Lichess](https://lichess.org/) — Free online chess platform
+- [PGN Standard](https://github.com/fsmosca/PGN-Standard) — PGN specification reference
+
+---
+
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the [MIT License](LICENSE).
 
 ## Author
 
-Corentin Giaufer Saubert
+[Corentin Giaufer Saubert](https://github.com/CorentinGS)

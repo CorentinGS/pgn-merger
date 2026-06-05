@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PgnMerger", "PgnMerger.fsproj", "{CAA16461-6A42-4BF6-AD6D-2FD66DF792D3}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "PgnMerger.Tests", "PgnMerger.Tests\PgnMerger.Tests.fsproj", "{B4E7D8A2-3C1F-4A5B-9E8D-6F2A1B3C4D5E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{CAA16461-6A42-4BF6-AD6D-2FD66DF792D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAA16461-6A42-4BF6-AD6D-2FD66DF792D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAA16461-6A42-4BF6-AD6D-2FD66DF792D3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4E7D8A2-3C1F-4A5B-9E8D-6F2A1B3C4D5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4E7D8A2-3C1F-4A5B-9E8D-6F2A1B3C4D5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4E7D8A2-3C1F-4A5B-9E8D-6F2A1B3C4D5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4E7D8A2-3C1F-4A5B-9E8D-6F2A1B3C4D5E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
