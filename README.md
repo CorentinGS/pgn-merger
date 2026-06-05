@@ -19,10 +19,13 @@ PGN Merger takes a directory of chess game files and combines them into one cons
 ## Features
 
 - **Merge all PGN files** in a directory into one `merge.pgn`
+- **Custom output path** via `--output`
+- **Recursive search** through subdirectories via `--recursive`
 - **Preserves original file encoding** (UTF-8)
 - **Zero dependencies** — standalone CLI binary
 - **Cross-platform** — runs on Windows, macOS, and Linux via .NET
-- **Progress feedback** during the merge process
+- **Progress feedback** with throughput stats in verbose mode
+- **Quiet mode** for silent operation
 - **Error handling** for missing directories, empty folders, and permission issues
 
 ---
@@ -37,6 +40,7 @@ Requires [.NET 9.0 SDK](https://dotnet.microsoft.com/download) or later:
 git clone https://github.com/CorentinGS/pgn-merger.git
 cd pgn-merger
 dotnet build
+dotnet run -- <folder_path> [options]
 ```
 
 ### As a Global .NET Tool (coming soon)
@@ -52,16 +56,44 @@ dotnet tool install -g PgnMerger
 ### Basic
 
 ```bash
-dotnet run <folder_path>
+PgnMerger <folder_path> [options]
 ```
 
-### Example
+### Options
+
+| Option | Description |
+|--------|-------------|
+| `--output <path>` | Output file path (default: `<folder>/merge.pgn`) |
+| `--recursive` | Search subdirectories for PGN files |
+| `--verbose` | Show detailed progress with throughput |
+| `--quiet` | Only show errors |
+| `-h`, `--help` | Show usage information |
+
+### Examples
+
+**Merge all PGN files in a directory:**
 
 ```bash
-dotnet run ./lichess_games
+PgnMerger ./lichess_games
 ```
 
-This merges all `.pgn` files in `./lichess_games` into `./lichess_games/merge.pgn`.
+**Merge with custom output file:**
+
+```bash
+PgnMerger ./lichess_games --output ./combined_games.pgn
+```
+
+**Recursive merge with verbose output:**
+
+```bash
+PgnMerger ./chess_databases --recursive --verbose --output ./all_games.pgn
+```
+
+**Quiet mode (errors only):**
+
+```bash
+PgnMerger ./games --quiet --output ./merged.pgn
+```
 
 ---
 
@@ -84,7 +116,7 @@ Choose **PGN Merger** when you want a simple, fast tool to combine PGN databases
 Download your Lichess games in PGN format, place them in one folder, and run:
 
 ```bash
-dotnet run ./my_lichess_games
+PgnMerger ./my_lichess_games
 ```
 
 The tool outputs a single `merge.pgn` with all games combined.
