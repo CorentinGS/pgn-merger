@@ -32,9 +32,37 @@ PGN Merger takes a directory of chess game files and combines them into one cons
 
 ## Installation
 
-### From Source
+### Option 1: Download Pre-built Binary (Recommended)
 
-Requires [.NET 9.0 SDK](https://dotnet.microsoft.com/download) or later:
+Grab the latest release for your platform from the [Releases page](https://github.com/CorentinGS/pgn-merger/releases):
+
+| Platform | Asset |
+|----------|-------|
+| Linux (x64) | `PgnMerger-linux-x64` |
+| Windows (x64) | `PgnMerger-win-x64.exe` |
+| macOS (Intel) | `PgnMerger-osx-x64` |
+| macOS (Apple Silicon) | `PgnMerger-osx-arm64` |
+
+No runtime required — self-contained executables.
+
+### Option 2: .NET Global Tool
+
+Requires [.NET 10.0 SDK](https://dotnet.microsoft.com/download) or later:
+
+```bash
+dotnet tool install -g PgnMerger
+```
+
+### Option 3: Build from Source
+
+```bash
+git clone https://github.com/CorentinGS/pgn-merger.git
+cd pgn-merger
+dotnet build
+dotnet run -- <folder_path> [options]
+```
+
+### Option 3: Build from Source
 
 ```bash
 git clone https://github.com/CorentinGS/pgn-merger.git

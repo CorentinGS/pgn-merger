@@ -6,3 +6,4 @@ riderModule.iml
 test_data/
 test_output/
 *.pgn
+.idea

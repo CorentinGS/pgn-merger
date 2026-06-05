@@ -3,6 +3,21 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net10.0</TargetFramework>
+
+        <!-- NuGet Global Tool Metadata -->
+        <PackAsTool>true</PackAsTool>
+        <ToolCommandName>PgnMerger</ToolCommandName>
+        <PackageId>PgnMerger</PackageId>
+        <Version>0.2.0</Version>
+        <Authors>Corentin Giaufer Saubert</Authors>
+        <Description>Fast CLI tool to merge chess PGN files into a single database</Description>
+        <PackageTags>chess;pgn;merge;cli;fsharp;dotnet;lichess</PackageTags>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/CorentinGS/pgn-merger</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/CorentinGS/pgn-merger.git</RepositoryUrl>
+
+        <!-- Optional: Native AOT for fastest startup -->
+        <!-- <PublishAot>true</PublishAot> -->
     </PropertyGroup>
 
     <ItemGroup>
